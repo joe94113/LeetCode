@@ -27,3 +27,21 @@ class Solution:
         if not l or not r: return False
         if l.val != r.val: return False
         return self.isSym(l.left, r.right) and self.isSym(l.right, r.left)
+
+
+# 迭代解
+from collections import deque
+class Solution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if not root : return True
+        q = deque([(root.left, root.right)])
+        while q:
+            l, r = q.popleft()
+            if not l and not r:
+                continue
+            if l and r and l.val == r.val:
+                q.append((l.left, r.right))
+                q.append((l.right, r.left))
+            else:
+                return False
+        return True
