@@ -43,7 +43,7 @@
 #         return t1
 
 
-from collections import deque
+
 
 
 # 迭代解
